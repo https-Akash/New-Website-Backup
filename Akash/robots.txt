@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://akash-mishra.netlify.app/sitemap.xml 

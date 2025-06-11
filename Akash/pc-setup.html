@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Akash Mishra's PC Setup - Ryzen 5 7640HS, RTX 3050, 16GB RAM">
+    <meta name="keywords" content="Akash Mishra, PC Specs, Gaming Setup, Ryzen 5, RTX 3050">
+    <meta name="author" content="Akash Mishra">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="PC Setup | Akash Mishra">
+    <meta property="og:description" content="Check out Akash Mishra's PC specs and gaming setup">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://akash-mishra.netlify.app/pc-setup.html">
+    <meta property="og:image" content="assets/images/preview.jpg">
+    
+    <title>PC Setup | Akash Mishra</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Animation Libraries -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <style>
+        /* PC Setup page specific styles */
+        .page-header {
+            padding: 9rem 0 4rem;
+            background-color: var(--color-dark-lighter);
+            text-align: center;
+        }
+        
+        .setup-intro {
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .setup-intro p {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            font-size: var(--size-lg);
+            line-height: 1.8;
+        }
+        
+        .pc-specs-section {
+            padding: 5rem 0;
+            background-color: var(--color-dark-lighter);
+        }
+        
+        .pc-specs-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .pc-image-container {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .pc-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .pc-image-container:hover .pc-image {
+            transform: scale(1.03);
+        }
+        
+        .specs-details {
+            background-color: var(--color-dark);
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .specs-title {
+            font-size: var(--size-2xl);
+            margin-bottom: 2rem;
+            color: var(--color-primary);
+            display: inline-block;
+            position: relative;
+        }
+        
+        .specs-title::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            bottom: -10px;
+            left: 0;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+        
+        .specs-list {
+            list-style: none;
+        }
+        
+        .specs-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .specs-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+        
+        .specs-icon {
+            margin-right: 1rem;
+            color: var(--color-primary);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .specs-content {
+            flex-grow: 1;
+        }
+        
+        .specs-category {
+            font-family: var(--font-heading);
+            font-size: var(--size-md);
+            margin-bottom: 0.5rem;
+            color: var(--color-light);
+        }
+        
+        .specs-value {
+            font-size: var(--size-md);
+            color: var(--color-light-dimmed);
+        }
+        
+        .specs-highlight {
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+        
+        .peripherals-section {
+            padding: 5rem 0;
+        }
+        
+        .peripherals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .peripheral-card {
+            background-color: var(--color-dark-lightest);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .peripheral-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .peripheral-image {
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .peripheral-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .peripheral-card:hover .peripheral-image img {
+            transform: scale(1.05);
+        }
+        
+        .peripheral-content {
+            padding: 1.5rem;
+        }
+        
+        .peripheral-name {
+            font-size: var(--size-xl);
+            margin-bottom: 0.5rem;
+            color: var(--color-light);
+            font-family: var(--font-heading);
+        }
+        
+        .peripheral-category {
+            font-size: var(--size-sm);
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .peripheral-description {
+            font-size: var(--size-md);
+            color: var(--color-light-dimmed);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .setup-gallery {
+            padding: 5rem 0;
+            background-color: var(--color-dark-lighter);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        
+        .gallery-item {
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 16 / 9;
+            cursor: pointer;
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-icon {
+            color: white;
+            font-size: 2rem;
+        }
+        
+        @media screen and (max-width: 991px) {
+            .pc-specs-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .specs-details {
+                order: 1;
+            }
+            
+            .pc-image-container {
+                order: 2;
+                margin-top: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="loading">
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="spinner"></div>
+            <div class="loading-text">Loading Akash's World...</div>
+        </div>
+    </div>
+
+    <!-- Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">AM</a>
+            </div>
+            <div class="menu-btn">
+                <div class="menu-btn__burger"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="pc-setup.html" class="active">PC Specs</a></li>
+                <li><a href="gaming.html">Gaming</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="contact.html" class="contact-btn">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 data-aos="fade-up">My PC Setup</h1>
+            <p data-aos="fade-up" data-aos-delay="100">The hardware behind my coding and gaming adventures</p>
+        </div>
+    </section>
+
+    <!-- Setup Intro -->
+    <section class="setup-intro">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">My Digital Workstation</h2>
+            <p data-aos="fade-up" data-aos-delay="100">
+                As both a developer and a gamer, my PC setup plays a vital role in my daily life. I've put together a system that balances 
+                performance for coding tasks and enough power for my gaming sessions. Here's a detailed look at my current setup.
+            </p>
+        </div>
+    </section>
+
+    <!-- PC Specs Section -->
+    <section class="pc-specs-section">
+        <div class="container">
+            <div class="pc-specs-container">
+                <div class="pc-image-container" data-aos="fade-right">
+                    <img src="assets/images/pc-setup.jpg" alt="Akash's PC Setup" class="pc-image">
+                </div>
+                <div class="specs-details" data-aos="fade-left">
+                    <h3 class="specs-title">System Specifications</h3>
+                    <ul class="specs-list">
+                        <li class="specs-item">
+                            <div class="specs-icon">💻</div>
+                            <div class="specs-content">
+                                <h4 class="specs-category">Processor</h4>
+                                <p class="specs-value">AMD <span class="specs-highlight">Ryzen 5 7640HS</span> (6 cores, 12 threads, up to 5.0 GHz)</p>
+                            </div>
+                        </li>
+                        <li class="specs-item">
+                            <div class="specs-icon">🎮</div>
+                            <div class="specs-content">
+                                <h4 class="specs-category">Graphics Card</h4>
+                                <p class="specs-value">NVIDIA <span class="specs-highlight">GeForce RTX 3050</span> (4GB GDDR6 VRAM)</p>
+                            </div>
+                        </li>
+                        <li class="specs-item">
+                            <div class="specs-icon">🧠</div>
+                            <div class="specs-content">
+                                <h4 class="specs-category">Memory</h4>
+                                <p class="specs-value"><span class="specs-highlight">16GB</span> DDR5 5600MHz (Dual Channel)</p>
+                            </div>
+                        </li>
+                        <li class="specs-item">
+                            <div class="specs-icon">💾</div>
+                            <div class="specs-content">
+                                <h4 class="specs-category">Storage</h4>
+                                <p class="specs-value">Primary: <span class="specs-highlight">512GB</span> NVMe SSD<br>Secondary: <span class="specs-highlight">1TB</span> HDD</p>
+                            </div>
+                        </li>
+                        <li class="specs-item">
+                            <div class="specs-icon">🖥️</div>
+                            <div class="specs-content">
+                                <h4 class="specs-category">Display</h4>
+                                <p class="specs-value"><span class="specs-highlight">15.6"</span> Full HD IPS (1920x1080), 144Hz refresh rate</p>
+                            </div>
+                        </li>
+                        <li class="specs-item">
+                            <div class="specs-icon">🔊</div>
+                            <div class="specs-content">
+                                <h4 class="specs-category">Audio</h4>
+                                <p class="specs-value">High-definition audio with <span class="specs-highlight">Dolby Atmos</span> support</p>
+                            </div>
+                        </li>
+                        <li class="specs-item">
+                            <div class="specs-icon">🔌</div>
+                            <div class="specs-content">
+                                <h4 class="specs-category">Connectivity</h4>
+                                <p class="specs-value">Wi-Fi 6, Bluetooth 5.2, USB-C, HDMI, Ethernet</p>
+                            </div>
+                        </li>
+                        <li class="specs-item">
+                            <div class="specs-icon">⚡</div>
+                            <div class="specs-content">
+                                <h4 class="specs-category">Power</h4>
+                                <p class="specs-value"><span class="specs-highlight">80W</span> battery with fast charging support</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Peripherals Section -->
+    <section class="peripherals-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">My Peripherals</h2>
+            <p class="text-center" data-aos="fade-up" data-aos-delay="100">The essential accessories that enhance my computing experience</p>
+            
+            <div class="peripherals-grid">
+                <div class="peripheral-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="peripheral-image">
+                        <img src="assets/images/mouse.jpg" alt="Gaming Mouse">
+                    </div>
+                    <div class="peripheral-content">
+                        <span class="peripheral-category">Input Device</span>
+                        <h3 class="peripheral-name">Logitech G502 Hero</h3>
+                        <p class="peripheral-description">High-precision gaming mouse with customizable RGB lighting and 11 programmable buttons. Perfect for both gaming and productivity.</p>
+                    </div>
+                </div>
+                
+                <div class="peripheral-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="peripheral-image">
+                        <img src="assets/images/keyboard.jpg" alt="Mechanical Keyboard">
+                    </div>
+                    <div class="peripheral-content">
+                        <span class="peripheral-category">Input Device</span>
+                        <h3 class="peripheral-name">Keychron K2</h3>
+                        <p class="peripheral-description">Mechanical keyboard with Gateron Brown switches, offering a satisfying typing experience for coding sessions and gaming.</p>
+                    </div>
+                </div>
+                
+                <div class="peripheral-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="peripheral-image">
+                        <img src="assets/images/headset.jpg" alt="Gaming Headset">
+                    </div>
+                    <div class="peripheral-content">
+                        <span class="peripheral-category">Audio</span>
+                        <h3 class="peripheral-name">SteelSeries Arctis 5</h3>
+                        <p class="peripheral-description">Premium gaming headset with DTS Headphone:X v2.0 surround sound and Discord-certified ClearCast microphone.</p>
+                    </div>
+                </div>
+                
+                <div class="peripheral-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="peripheral-image">
+                        <img src="assets/images/monitor.jpg" alt="External Monitor">
+                    </div>
+                    <div class="peripheral-content">
+                        <span class="peripheral-category">Display</span>
+                        <h3 class="peripheral-name">Dell S2721DGF</h3>
+                        <p class="peripheral-description">27-inch QHD gaming monitor with 165Hz refresh rate, 1ms response time, and excellent color accuracy for both work and play.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Setup Gallery Section -->
+    <section class="setup-gallery">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Setup Gallery</h2>
+            <p class="text-center" data-aos="fade-up" data-aos-delay="100">Visual tour of my workspace and gaming station</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                    <img src="assets/images/setup-gallery1.jpg" alt="Desk Setup" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-icon">🔍</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="150">
+                    <img src="assets/images/setup-gallery2.jpg" alt="PC Case" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-icon">🔍</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                    <img src="assets/images/setup-gallery3.jpg" alt="Night Setup" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-icon">🔍</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="250">
+                    <img src="assets/images/setup-gallery4.jpg" alt="Keyboard Close-up" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-icon">🔍</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Software Section -->
+    <section class="software-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Essential Software</h2>
+            <p class="text-center" data-aos="fade-up" data-aos-delay="100">The applications that power my development and gaming</p>
+            
+            <div class="tabs-container" data-aos="fade-up" data-aos-delay="150">
+                <div class="tabs">
+                    <div class="tab active" data-tab="dev">Development</div>
+                    <div class="tab" data-tab="gaming">Gaming</div>
+                    <div class="tab" data-tab="productivity">Productivity</div>
+                </div>
+                
+                <div class="tab-content active" id="dev-content">
+                    <ul class="software-list">
+                        <li>VS Code - My primary code editor</li>
+                        <li>XAMPP - Local development environment</li>
+                        <li>Git - Version control system</li>
+                        <li>FileZilla - FTP client for file transfers</li>
+                        <li>Chrome & Firefox - Web browsers with dev tools</li>
+                        <li>Figma - For UI/UX design work</li>
+                        <li>Postman - API testing and development</li>
+                    </ul>
+                </div>
+                
+                <div class="tab-content" id="gaming-content">
+                    <ul class="software-list">
+                        <li>Steam - Game library and marketplace</li>
+                        <li>Epic Games Launcher - For free games and exclusives</li>
+                        <li>Discord - For gaming communications</li>
+                        <li>OBS Studio - For occasional game streaming</li>
+                        <li>MSI Afterburner - For GPU monitoring and overclocking</li>
+                        <li>GeForce Experience - Driver updates and gameplay recording</li>
+                    </ul>
+                </div>
+                
+                <div class="tab-content" id="productivity-content">
+                    <ul class="software-list">
+                        <li>Microsoft Office Suite - Word, Excel, PowerPoint</li>
+                        <li>Notion - For notes and project management</li>
+                        <li>Spotify - Music while working</li>
+                        <li>Adobe Acrobat Reader - PDF handling</li>
+                        <li>7-Zip - File compression and extraction</li>
+                        <li>Grammarly - Writing assistant</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="contact-cta">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Questions About My Setup?</h2>
+            <p data-aos="fade-up" data-aos-delay="100">Feel free to reach out if you have any questions about my hardware or software choices</p>
+            <div class="cta-buttons" data-aos="fade-up" data-aos-delay="200">
+                <a href="contact.html" class="btn btn-primary">Get In Touch</a>
+                <a href="gaming.html" class="btn btn-secondary">Check Out My Gaming</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Akash Mishra</h3>
+                    <p>Commerce Student. Web Developer. Gamer.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-links-column">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="skills.html">Skills</a></li>
+                            <li><a href="projects.html">Projects</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h4>More</h4>
+                        <ul>
+                            <li><a href="pc-setup.html">PC Specs</a></li>
+                            <li><a href="gaming.html">Gaming</a></li>
+                            <li><a href="resume.html">Resume</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="contact.html">Get In Touch</a></li>
+                            <li><a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                            <li><a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                            <li><a href="https://discord.com/" target="_blank" rel="noopener noreferrer">Discord</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Akash Mishra. All Rights Reserved.</p>
+                <div class="footer-credits">
+                    <p>Designed & Built with 💻 by <span class="highlight">Akash</span></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme Toggler -->
+    <div class="theme-toggle">
+        <span class="theme-toggle-icon">🌙</span>
+    </div>
+
+    <!-- Matrix Text Effect -->
+    <canvas id="matrix-canvas" class="matrix-effect"></canvas>
+
+    <!-- Scripts -->
+    <!-- External Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="js/cursor.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/matrix.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/main.js"></script>
+    
+    <style>
+        /* Additional styles for tabs */
+        .tabs-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: var(--color-dark-lightest);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .tab {
+            padding: 1rem 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: var(--font-heading);
+            font-weight: 500;
+        }
+        
+        .tab.active {
+            background-color: var(--color-primary);
+            color: white;
+        }
+        
+        .tab:hover:not(.active) {
+            background-color: rgba(74, 108, 247, 0.1);
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 2rem;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .software-list {
+            list-style: none;
+        }
+        
+        .software-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .software-list li:before {
+            content: "→";
+            color: var(--color-primary);
+            position: absolute;
+            left: 0;
+        }
+        
+        .software-list li:last-child {
+            border-bottom: none;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .tab:last-child {
+                border-bottom: none;
+            }
+        }
+    </style>
+    
+    <script>
+        // Tabs functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs and content
+                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked tab and corresponding content
+                    tab.classList.add('active');
+                    const tabId = tab.getAttribute('data-tab');
+                    document.getElementById(tabId + '-content').classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

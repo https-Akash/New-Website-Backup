@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gaming Profile of Akash Mishra - Favorite Games, Achievements, and Gaming Setup">
+    <meta name="keywords" content="Akash Mishra, Gaming, Gamer, PC Games, Gaming Setup, Esports">
+    <meta name="author" content="Akash Mishra">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Gaming | Akash Mishra">
+    <meta property="og:description" content="Explore Akash Mishra's gaming profile, favorite games, and achievements">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://akash-mishra.netlify.app/gaming.html">
+    <meta property="og:image" content="assets/images/preview.jpg">
+    
+    <title>Gaming | Akash Mishra</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Animation Libraries -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <style>
+        /* Gaming page specific styles */
+        .page-header {
+            padding: 9rem 0 4rem;
+            background-color: var(--color-dark-lighter);
+            text-align: center;
+        }
+        
+        .gaming-intro {
+            padding: 5rem 0;
+        }
+        
+        .gaming-intro p {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            font-size: var(--size-lg);
+            line-height: 1.8;
+        }
+        
+        .favorite-games {
+            background-color: var(--color-dark-lighter);
+            padding: 5rem 0;
+        }
+        
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .game-card {
+            background-color: var(--color-dark);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .game-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .game-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .game-card:hover .game-image img {
+            transform: scale(1.05);
+        }
+        
+        .game-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 60%);
+        }
+        
+        .game-content {
+            padding: 1.5rem;
+        }
+        
+        .game-title {
+            font-family: var(--font-heading);
+            font-size: var(--size-xl);
+            margin-bottom: 0.5rem;
+            color: var(--color-light);
+        }
+        
+        .game-genre {
+            color: var(--color-primary);
+            font-size: var(--size-sm);
+            margin-bottom: 1rem;
+        }
+        
+        .game-description {
+            font-size: var(--size-md);
+            line-height: 1.6;
+            color: var(--color-light-dimmed);
+            margin-bottom: 1.5rem;
+        }
+        
+        .game-stats {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.2rem;
+        }
+        
+        .game-stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .stat-value {
+            font-family: var(--font-heading);
+            font-size: var(--size-lg);
+            color: var(--color-primary);
+            margin-bottom: 0.3rem;
+        }
+        
+        .stat-label {
+            font-size: var(--size-xs);
+            color: var(--color-light-dimmed);
+        }
+        
+        .gaming-achievements {
+            padding: 5rem 0;
+        }
+        
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .achievement-card {
+            background-color: var(--color-dark-lightest);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+            border-top: 3px solid var(--color-primary);
+        }
+        
+        .achievement-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .achievement-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+        }
+        
+        .achievement-title {
+            font-size: var(--size-lg);
+            font-family: var(--font-heading);
+            margin-bottom: 0.8rem;
+            color: var(--color-light);
+        }
+        
+        .achievement-game {
+            font-size: var(--size-sm);
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .achievement-description {
+            font-size: var(--size-md);
+            color: var(--color-light-dimmed);
+            line-height: 1.6;
+        }
+        
+        .esports-section {
+            background-color: var(--color-dark-lighter);
+            padding: 5rem 0;
+        }
+        
+        .esports-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .esports-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .esports-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .esports-info h3 {
+            font-size: var(--size-2xl);
+            margin-bottom: 1.5rem;
+            color: var(--color-light);
+        }
+        
+        .esports-info p {
+            font-size: var(--size-lg);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: var(--color-light-dimmed);
+        }
+        
+        .game-preferences {
+            padding: 5rem 0;
+        }
+        
+        .preferences-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .preference-card {
+            background-color: var(--color-dark-lightest);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .preference-title {
+            font-size: var(--size-md);
+            font-family: var(--font-heading);
+            margin-bottom: 1rem;
+            color: var(--color-light);
+        }
+        
+        .preference-content {
+            font-size: var(--size-lg);
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+        
+        .streaming-section {
+            background-color: var(--color-dark-lighter);
+            padding: 5rem 0;
+        }
+        
+        .streaming-content {
+            text-align: center;
+        }
+        
+        .streaming-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .streaming-btn {
+            display: flex;
+            align-items: center;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: var(--size-md);
+            transition: all var(--transition-medium);
+        }
+        
+        .twitch-btn {
+            background: #9146FF;
+            color: white;
+        }
+        
+        .twitch-btn:hover {
+            background: #7d2df8;
+            transform: translateY(-5px);
+        }
+        
+        .youtube-btn {
+            background: #FF0000;
+            color: white;
+        }
+        
+        .youtube-btn:hover {
+            background: #d90000;
+            transform: translateY(-5px);
+        }
+        
+        .streaming-icon {
+            font-size: 1.5rem;
+            margin-right: 0.8rem;
+        }
+        
+        @media screen and (max-width: 991px) {
+            .esports-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .preferences-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .streaming-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        @media screen and (max-width: 576px) {
+            .preferences-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="loading">
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="spinner"></div>
+            <div class="loading-text">Loading Akash's World...</div>
+        </div>
+    </div>
+
+    <!-- Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">AM</a>
+            </div>
+            <div class="menu-btn">
+                <div class="menu-btn__burger"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="pc-setup.html">PC Specs</a></li>
+                <li><a href="gaming.html" class="active">Gaming</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="contact.html" class="contact-btn">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 data-aos="fade-up">My Gaming World</h1>
+            <p data-aos="fade-up" data-aos-delay="100">When I'm not coding, I'm most likely gaming</p>
+        </div>
+    </section>
+
+    <!-- Gaming Intro -->
+    <section class="gaming-intro">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">My Gaming Journey</h2>
+            <p data-aos="fade-up" data-aos-delay="100">
+                Gaming has always been an integral part of my life, serving as both entertainment and a source of inspiration for my web development projects.
+                I started gaming at an early age with simple titles and gradually moved to more complex and competitive games.
+            </p>
+            <p data-aos="fade-up" data-aos-delay="150">
+                As a developer, I find that gaming helps me think creatively and problem-solve in different ways.
+                Many UI concepts and interactive elements in my web projects are actually inspired by game interfaces and mechanics.
+            </p>
+        </div>
+    </section>
+
+    <!-- Favorite Games -->
+    <section class="favorite-games">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">My Favorite Games</h2>
+            <p class="text-center" data-aos="fade-up" data-aos-delay="100">These are the titles that have shaped my gaming experience</p>
+            
+            <div class="games-grid">
+                <div class="game-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="game-image">
+                        <img src="assets/images/game1.jpg" alt="Valorant">
+                        <div class="game-overlay"></div>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">Valorant</h3>
+                        <p class="game-genre">Tactical FPS</p>
+                        <p class="game-description">
+                            A competitive 5v5 tactical shooter where precise gunplay meets unique agent abilities.
+                            I enjoy the strategic depth and team coordination required.
+                        </p>
+                        <div class="game-stats">
+                            <div class="game-stat">
+                                <div class="stat-value">Diamond</div>
+                                <div class="stat-label">Rank</div>
+                            </div>
+                            <div class="game-stat">
+                                <div class="stat-value">800+</div>
+                                <div class="stat-label">Hours</div>
+                            </div>
+                            <div class="game-stat">
+                                <div class="stat-value">Jett</div>
+                                <div class="stat-label">Main</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="game-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="game-image">
+                        <img src="assets/images/game2.jpg" alt="Cyberpunk 2077">
+                        <div class="game-overlay"></div>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">Cyberpunk 2077</h3>
+                        <p class="game-genre">Action RPG</p>
+                        <p class="game-description">
+                            An open-world action-adventure set in Night City. I was captivated by its immersive world,
+                            narrative depth, and futuristic design.
+                        </p>
+                        <div class="game-stats">
+                            <div class="game-stat">
+                                <div class="stat-value">100%</div>
+                                <div class="stat-label">Completion</div>
+                            </div>
+                            <div class="game-stat">
+                                <div class="stat-value">200+</div>
+                                <div class="stat-label">Hours</div>
+                            </div>
+                            <div class="game-stat">
+                                <div class="stat-value">Nomad</div>
+                                <div class="stat-label">Lifepath</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="game-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="game-image">
+                        <img src="assets/images/game3.jpg" alt="Minecraft">
+                        <div class="game-overlay"></div>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">Minecraft</h3>
+                        <p class="game-genre">Sandbox</p>
+                        <p class="game-description">
+                            A game that celebrates creativity and exploration. I've spent countless hours building
+                            elaborate structures and redstone contraptions.
+                        </p>
+                        <div class="game-stats">
+                            <div class="game-stat">
+                                <div class="stat-value">1000+</div>
+                                <div class="stat-label">Hours</div>
+                            </div>
+                            <div class="game-stat">
+                                <div class="stat-value">50+</div>
+                                <div class="stat-label">Builds</div>
+                            </div>
+                            <div class="game-stat">
+                                <div class="stat-value">Java</div>
+                                <div class="stat-label">Edition</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gaming Achievements -->
+    <section class="gaming-achievements">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Notable Achievements</h2>
+            <p class="text-center" data-aos="fade-up" data-aos-delay="100">Some of my proudest gaming moments</p>
+            
+            <div class="achievements-grid">
+                <div class="achievement-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="achievement-icon">🏆</div>
+                    <h3 class="achievement-title">Regional Tournament Finalist</h3>
+                    <p class="achievement-game">Valorant</p>
+                    <p class="achievement-description">Reached finals in a regional university tournament with my team of five.</p>
+                </div>
+                
+                <div class="achievement-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="achievement-icon">🌎</div>
+                    <h3 class="achievement-title">Megastructure Project</h3>
+                    <p class="achievement-game">Minecraft</p>
+                    <p class="achievement-description">Built a full-scale replica of my university campus in Minecraft that gained local recognition.</p>
+                </div>
+                
+                <div class="achievement-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="achievement-icon">⚔️</div>
+                    <h3 class="achievement-title">All Achievements</h3>
+                    <p class="achievement-game">Cyberpunk 2077</p>
+                    <p class="achievement-description">Completed all in-game achievements and discovered all hidden locations.</p>
+                </div>
+                
+                <div class="achievement-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="achievement-icon">📈</div>
+                    <h3 class="achievement-title">Top 500 Rank</h3>
+                    <p class="achievement-game">Apex Legends</p>
+                    <p class="achievement-description">Reached Predator rank and sustained position in the top 500 players for a season.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Esports Section -->
+    <section class="esports-section">
+        <div class="container">
+            <div class="esports-content">
+                <div class="esports-image" data-aos="fade-right">
+                    <img src="assets/images/esports.jpg" alt="Esports Event">
+                </div>
+                <div class="esports-info" data-aos="fade-left">
+                    <h3>My Competitive Gaming</h3>
+                    <p>
+                        I've participated in several local and online tournaments, primarily in tactical FPS games like Valorant.
+                        While I haven't gone pro, competitive gaming has taught me valuable skills like team coordination,
+                        quick decision-making, and performing under pressure.
+                    </p>
+                    <p>
+                        These experiences significantly influence my approach to collaborative coding projects and deadline-driven work.
+                        The strategic thinking required in competitive gaming translates well to problem-solving in web development.
+                    </p>
+                    <a href="#" class="btn btn-primary">View Tournament History</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Preferences -->
+    <section class="game-preferences">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Gaming Preferences</h2>
+            <p class="text-center" data-aos="fade-up" data-aos-delay="100">My preferred settings and style</p>
+            
+            <div class="preferences-container" data-aos="fade-up" data-aos-delay="200">
+                <div class="preference-card">
+                    <h3 class="preference-title">Platform</h3>
+                    <div class="preference-content">PC</div>
+                </div>
+                
+                <div class="preference-card">
+                    <h3 class="preference-title">Mouse DPI</h3>
+                    <div class="preference-content">800</div>
+                </div>
+                
+                <div class="preference-card">
+                    <h3 class="preference-title">Play Style</h3>
+                    <div class="preference-content">Strategic</div>
+                </div>
+                
+                <div class="preference-card">
+                    <h3 class="preference-title">Gaming Hours</h3>
+                    <div class="preference-content">Evenings</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Streaming Section -->
+    <section class="streaming-section">
+        <div class="container">
+            <div class="streaming-content">
+                <h2 class="section-title" data-aos="fade-up">Occasional Streaming</h2>
+                <p data-aos="fade-up" data-aos-delay="100">
+                    I sometimes stream my gaming sessions and coding projects. Follow me on these platforms to join in and chat!
+                </p>
+                <div class="streaming-buttons" data-aos="fade-up" data-aos-delay="200">
+                    <a href="#" class="streaming-btn twitch-btn">
+                        <span class="streaming-icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                <path d="M11.571 4.714h1.715v5.143h-1.715zM16.285 4.714h1.715v5.143h-1.715zM2.857 0L.143 2.857v18.285h5.143v2.857l2.857-2.857h3.429L17.143 16V0zM15.429 14.571l-2.857 2.857H9.143l-2 2v-2H3.429V1.714h12z"/>
+                            </svg>
+                        </span>
+                        <span>Follow on Twitch</span>
+                    </a>
+                    <a href="#" class="streaming-btn youtube-btn">
+                        <span class="streaming-icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </span>
+                        <span>Subscribe on YouTube</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="contact-cta">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Let's Play Together</h2>
+            <p data-aos="fade-up" data-aos-delay="100">Interested in gaming together? Reach out and let's connect!</p>
+            <div class="cta-buttons" data-aos="fade-up" data-aos-delay="200">
+                <a href="contact.html" class="btn btn-primary">Get In Touch</a>
+                <a href="pc-setup.html" class="btn btn-secondary">Check My Setup</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Akash Mishra</h3>
+                    <p>Commerce Student. Web Developer. Gamer.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-links-column">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="skills.html">Skills</a></li>
+                            <li><a href="projects.html">Projects</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h4>More</h4>
+                        <ul>
+                            <li><a href="pc-setup.html">PC Specs</a></li>
+                            <li><a href="gaming.html">Gaming</a></li>
+                            <li><a href="resume.html">Resume</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="contact.html">Get In Touch</a></li>
+                            <li><a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                            <li><a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                            <li><a href="https://discord.com/" target="_blank" rel="noopener noreferrer">Discord</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Akash Mishra. All Rights Reserved.</p>
+                <div class="footer-credits">
+                    <p>Designed & Built with 💻 by <span class="highlight">Akash</span></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme Toggler -->
+    <div class="theme-toggle">
+        <span class="theme-toggle-icon">🌙</span>
+    </div>
+
+    <!-- Matrix Text Effect -->
+    <canvas id="matrix-canvas" class="matrix-effect"></canvas>
+
+    <!-- Scripts -->
+    <!-- External Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.0/dist/vanilla-tilt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="js/cursor.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/matrix.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 

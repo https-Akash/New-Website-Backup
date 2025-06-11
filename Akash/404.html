@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Page not found - Akash Mishra's Portfolio">
+    <meta name="author" content="Akash Mishra">
+    
+    <title>404 - Page Not Found | Akash Mishra</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <style>
+        .error-page {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            background-color: var(--color-dark);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .error-code {
+            font-size: clamp(8rem, 20vw, 15rem);
+            font-family: var(--font-heading);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            position: relative;
+            color: transparent;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            animation: textGlow 3s ease-in-out infinite;
+        }
+        
+        .error-title {
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            margin-bottom: 2rem;
+        }
+        
+        .error-message {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            font-size: var(--size-lg);
+            opacity: 0.8;
+            padding: 0 2rem;
+        }
+        
+        .console {
+            background-color: var(--color-dark-lightest);
+            border-radius: 8px;
+            padding: 1.5rem;
+            max-width: 600px;
+            width: 80%;
+            margin-bottom: 2.5rem;
+            text-align: left;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .console::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+        
+        .console-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
+        }
+        
+        .console-circle {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+        
+        .circle-red {
+            background-color: #ff5f57;
+        }
+        
+        .circle-yellow {
+            background-color: #febc2e;
+        }
+        
+        .circle-green {
+            background-color: #28c840;
+        }
+        
+        .console-title {
+            font-family: var(--font-heading);
+            font-size: var(--size-sm);
+            color: var(--color-light);
+            opacity: 0.8;
+            margin-left: 0.5rem;
+        }
+        
+        .console-body {
+            font-family: monospace;
+            font-size: var(--size-md);
+        }
+        
+        .console-line {
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+        
+        .console-prompt {
+            color: var(--color-tertiary);
+            margin-right: 0.5rem;
+        }
+        
+        .console-command {
+            color: var(--color-secondary);
+        }
+        
+        .console-error {
+            color: #ff5f57;
+        }
+        
+        .console-success {
+            color: var(--color-tertiary);
+        }
+        
+        .console-cursor {
+            display: inline-block;
+            width: 10px;
+            height: 18px;
+            background-color: var(--color-secondary);
+            animation: blink 1s infinite;
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        .particles-js-error {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .error-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-page">
+        <div id="particles-js-error" class="particles-js-error"></div>
+        
+        <div class="error-content">
+            <h1 class="error-code">404</h1>
+            <h2 class="error-title">Page Not Found</h2>
+            
+            <div class="console">
+                <div class="console-header">
+                    <div class="console-circle circle-red"></div>
+                    <div class="console-circle circle-yellow"></div>
+                    <div class="console-circle circle-green"></div>
+                    <div class="console-title">Terminal</div>
+                </div>
+                <div class="console-body">
+                    <div class="console-line">
+                        <span class="console-prompt">akash@portfolio:~$</span>
+                        <span class="console-command">find /page</span>
+                    </div>
+                    <div class="console-line">
+                        <span class="console-error">Error: Page not found in directory</span>
+                    </div>
+                    <div class="console-line">
+                        <span class="console-prompt">akash@portfolio:~$</span>
+                        <span class="console-command">redirect --to home</span>
+                    </div>
+                    <div class="console-line">
+                        <span class="console-success">Redirecting to homepage...</span>
+                    </div>
+                    <div class="console-line">
+                        <span class="console-prompt">akash@portfolio:~$</span>
+                        <span class="console-cursor"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="error-message">The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+            
+            <a href="index.html" class="btn btn-primary">Return to Homepage</a>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Initialize particle.js for error page
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof particlesJS !== 'undefined') {
+                particlesJS('particles-js-error', {
+                    particles: {
+                        number: {
+                            value: 40,
+                            density: {
+                                enable: true,
+                                value_area: 800
+                            }
+                        },
+                        color: {
+                            value: ['#6a00f4', '#00c3ff', '#00ff9c']
+                        },
+                        shape: {
+                            type: 'circle',
+                            stroke: {
+                                width: 0,
+                                color: '#000000'
+                            },
+                        },
+                        opacity: {
+                            value: 0.5,
+                            random: true,
+                            anim: {
+                                enable: true,
+                                speed: 1,
+                                opacity_min: 0.1,
+                                sync: false
+                            }
+                        },
+                        size: {
+                            value: 3,
+                            random: true,
+                        },
+                        line_linked: {
+                            enable: true,
+                            distance: 150,
+                            color: '#00c3ff',
+                            opacity: 0.2,
+                            width: 1
+                        },
+                        move: {
+                            enable: true,
+                            speed: 1,
+                            direction: 'none',
+                            random: false,
+                            straight: false,
+                            out_mode: 'out',
+                            bounce: false,
+                        }
+                    },
+                    interactivity: {
+                        detect_on: 'canvas',
+                        events: {
+                            onhover: {
+                                enable: true,
+                                mode: 'grab'
+                            },
+                            onclick: {
+                                enable: true,
+                                mode: 'push'
+                            },
+                            resize: true
+                        }
+                    },
+                    retina_detect: true
+                });
+            }
+            
+            // Auto redirect after 10 seconds
+            setTimeout(function() {
+                window.location.href = 'index.html';
+            }, 10000);
+        });
+    </script>
+</body>
+</html> 

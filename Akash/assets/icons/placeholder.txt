@@ -1,0 +1,18 @@
+This directory should contain SVG icons such as:
+
+1. favicon.ico - Website favicon
+2. html.svg - HTML icon
+3. css.svg - CSS icon
+4. js.svg - JavaScript icon
+5. php.svg - PHP icon
+6. mysql.svg - MySQL icon
+7. responsive.svg - Responsive Design icon
+8. react.svg - React icon
+9. python.svg - Python icon
+10. canva.svg - Canva icon
+11. wordpress.svg - WordPress icon
+12. wix.svg - Wix icon
+
+SVG format is preferred for scalability and smaller file sizes. Icons should have consistent styling to maintain visual harmony across the site. 
+
+Icon color should match the site's color scheme, preferably using currentColor attribute to inherit from CSS or using var(--color-primary) where appropriate. 

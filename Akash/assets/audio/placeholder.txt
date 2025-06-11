@@ -1,0 +1,9 @@
+This directory should contain audio files such as:
+
+1. matrix-sound.mp3 - Sound effect for Matrix easter egg
+2. (Optional) Any other sound effects for interactions
+
+Audio files should be:
+- Compressed (MP3 format with reasonable bitrate)
+- Short in duration to minimize loading times
+- Lower volume to avoid startling users 

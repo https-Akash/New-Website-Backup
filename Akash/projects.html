@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projects by Akash Mishra - Web Developer, Commerce Student and Gamer">
+    <meta name="keywords" content="Akash Mishra, Projects, Portfolio, Web Development, E-Commerce, Game UI">
+    <meta name="author" content="Akash Mishra">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Projects | Akash Mishra">
+    <meta property="og:description" content="Explore the web development projects created by Akash Mishra">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://akash-mishra.netlify.app/projects.html">
+    <meta property="og:image" content="assets/images/preview.jpg">
+    
+    <title>Projects | Akash Mishra</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Animation Libraries -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <style>
+        /* Projects page specific styles */
+        .page-header {
+            padding: 9rem 0 4rem;
+            background-color: var(--color-dark-lighter);
+            text-align: center;
+        }
+        
+        .projects-intro {
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .projects-intro p {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            font-size: var(--size-lg);
+            line-height: 1.8;
+        }
+        
+        .projects-filter {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            background-color: var(--color-dark-lightest);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: var(--font-heading);
+            font-weight: 500;
+        }
+        
+        .filter-btn.active {
+            background-color: var(--color-primary);
+            color: white;
+        }
+        
+        .filter-btn:hover:not(.active) {
+            background-color: rgba(74, 108, 247, 0.1);
+        }
+        
+        .projects-container {
+            padding-top: 2rem;
+        }
+        
+        .project {
+            margin-bottom: 6rem;
+            background-color: var(--color-dark-lightest);
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        .project-image {
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            min-height: 400px;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project:hover .project-image img {
+            transform: scale(1.05);
+        }
+        
+        .project-content {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .project-title {
+            font-size: var(--size-3xl);
+            margin-bottom: 1.5rem;
+            color: var(--color-light);
+        }
+        
+        .project-category {
+            font-size: var(--size-sm);
+            text-transform: uppercase;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            font-family: var(--font-heading);
+            letter-spacing: 1px;
+        }
+        
+        .project-description {
+            margin-bottom: 2rem;
+            font-size: var(--size-md);
+            line-height: 1.8;
+            color: var(--color-light-dimmed);
+        }
+        
+        .project-tech {
+            margin-bottom: 2rem;
+        }
+        
+        .tech-title {
+            font-size: var(--size-md);
+            margin-bottom: 0.5rem;
+            color: var(--color-light);
+            font-weight: 600;
+        }
+        
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .tech-tag {
+            background: rgba(74, 108, 247, 0.1);
+            color: var(--color-primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 3px;
+            font-size: var(--size-xs);
+            font-weight: 500;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .project-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: var(--size-sm);
+            transition: all var(--transition-medium);
+        }
+        
+        .live-btn {
+            background: var(--color-primary);
+            color: white;
+        }
+        
+        .live-btn:hover {
+            background: #3a5ce4;
+            transform: translateY(-2px);
+        }
+        
+        .github-btn {
+            background: var(--color-dark);
+            color: var(--color-light);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .github-btn:hover {
+            border-color: var(--color-primary);
+            transform: translateY(-2px);
+        }
+        
+        .btn-icon {
+            margin-right: 0.5rem;
+            font-size: 1.1em;
+        }
+        
+        /* Projects reversed layout */
+        .project.reversed .project-inner {
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        .project.reversed .project-image {
+            order: 2;
+        }
+        
+        .project.reversed .project-content {
+            order: 1;
+        }
+        
+        .project-thumbnail-section {
+            padding: 5rem 0;
+            background-color: var(--color-dark-lighter);
+        }
+        
+        .thumbnail-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .project-thumbnails {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-thumbnail {
+            position: relative;
+            background-color: var(--color-dark);
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
+        }
+        
+        .project-thumbnail:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .thumbnail-image {
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .thumbnail-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-thumbnail:hover .thumbnail-image img {
+            transform: scale(1.05);
+        }
+        
+        .thumbnail-content {
+            padding: 1.5rem;
+        }
+        
+        .thumbnail-name {
+            font-size: var(--size-lg);
+            margin-bottom: 0.5rem;
+            color: var(--color-light);
+        }
+        
+        .thumbnail-desc {
+            font-size: var(--size-sm);
+            color: var(--color-light-dimmed);
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .thumbnail-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .thumbnail-tag {
+            background: rgba(74, 108, 247, 0.1);
+            color: var(--color-primary);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-size: var(--size-xs);
+        }
+        
+        /* Project link overlay to make the entire thumbnail clickable */
+        .project-link {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 5;
+            cursor: pointer;
+        }
+        
+        @media screen and (max-width: 991px) {
+            .project-inner,
+            .project.reversed .project-inner {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-image,
+            .project.reversed .project-image {
+                order: 1;
+                min-height: 300px;
+            }
+            
+            .project-content,
+            .project.reversed .project-content {
+                order: 2;
+                padding: 2rem;
+            }
+            
+            .project {
+                margin-bottom: 4rem;
+            }
+            
+            .project-title {
+                font-size: var(--size-2xl);
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .projects-filter {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .filter-btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body class="loading">
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="spinner"></div>
+            <div class="loading-text">Loading Akash's World...</div>
+        </div>
+    </div>
+
+    <!-- Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">AM</a>
+            </div>
+            <div class="menu-btn">
+                <div class="menu-btn__burger"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="pc-setup.html">PC Specs</a></li>
+                <li><a href="gaming.html">Gaming</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="contact.html" class="contact-btn">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 data-aos="fade-up">My Projects</h1>
+            <p data-aos="fade-up" data-aos-delay="100">Showcasing my work and development journey</p>
+        </div>
+    </section>
+
+    <!-- Projects Intro -->
+    <section class="projects-intro">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">What I've Built</h2>
+            <p data-aos="fade-up" data-aos-delay="100">
+                These projects represent my journey as a self-taught web developer. Each one has helped me grow my skills and explore new technologies.
+                From e-commerce platforms to gaming community sites, I've focused on creating functional and visually appealing web experiences.
+            </p>
+            
+            <div class="projects-filter" data-aos="fade-up" data-aos-delay="200">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="educational">Educational</button>
+                <button class="filter-btn" data-filter="gaming">Gaming</button>
+                <button class="filter-btn" data-filter="ecommerce">E-Commerce</button>
+                <button class="filter-btn" data-filter="tools">Tools</button>
+                <button class="filter-btn" data-filter="other">Other</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="project-thumbnail-section">
+        <div class="container">
+            <h2 class="section-title thumbnail-title" data-aos="fade-up">My Projects</h2>
+            
+            <div class="project-thumbnails">
+                <!-- School Website Project -->
+                <div class="project-thumbnail" data-aos="fade-up" data-aos-delay="100" data-category="educational">
+                    <div class="thumbnail-image">
+                        <img src="assets/images/project-image01.svg" alt="School Website">
+                    </div>
+                    <div class="thumbnail-content">
+                        <h3 class="thumbnail-name">School Website</h3>
+                        <p class="thumbnail-desc">A full-fledged website for Sanskar Academy with comprehensive school information and features.</p>
+                        <div class="thumbnail-tags">
+                            <span class="thumbnail-tag">HTML</span>
+                            <span class="thumbnail-tag">CSS</span>
+                            <span class="thumbnail-tag">JavaScript</span>
+                        </div>
+                    </div>
+                    <a href="https://www.sanskaracademy.site/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View School Website Project"></a>
+                </div>
+                
+                <!-- Coaching Website Project -->
+                <div class="project-thumbnail" data-aos="fade-up" data-aos-delay="150" data-category="educational">
+                    <div class="thumbnail-image">
+                        <img src="assets/images/project-image02.svg" alt="Coaching Website">
+                    </div>
+                    <div class="thumbnail-content">
+                        <h3 class="thumbnail-name">Coaching Website</h3>
+                        <p class="thumbnail-desc">A comprehensive website for Glorious Coaching Institute with course details and student resources.</p>
+                        <div class="thumbnail-tags">
+                            <span class="thumbnail-tag">HTML</span>
+                            <span class="thumbnail-tag">CSS</span>
+                            <span class="thumbnail-tag">JavaScript</span>
+                        </div>
+                    </div>
+                    <a href="https://gloriouscoaching.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View Coaching Website Project"></a>
+                </div>
+                
+                <!-- Digital Marketing Portfolio -->
+                <div class="project-thumbnail" data-aos="fade-up" data-aos-delay="200" data-category="ecommerce">
+                    <div class="thumbnail-image">
+                        <img src="assets/images/project-image03.svg" alt="Digital Marketing Portfolio">
+                    </div>
+                    <div class="thumbnail-content">
+                        <h3 class="thumbnail-name">Digital Marketing Portfolio</h3>
+                        <p class="thumbnail-desc">A portfolio website for Anshu Mishra showcasing digital marketing skills and projects.</p>
+                        <div class="thumbnail-tags">
+                            <span class="thumbnail-tag">HTML</span>
+                            <span class="thumbnail-tag">CSS</span>
+                            <span class="thumbnail-tag">JavaScript</span>
+                        </div>
+                    </div>
+                    <a href="https://anshu-24.github.io/anshu-mishra/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View Digital Marketing Portfolio"></a>
+                </div>
+                
+                <!-- Web Calculator -->
+                <div class="project-thumbnail" data-aos="fade-up" data-aos-delay="250" data-category="tools">
+                    <div class="thumbnail-image">
+                        <img src="assets/images/project-image04.svg" alt="Web Calculator">
+                    </div>
+                    <div class="thumbnail-content">
+                        <h3 class="thumbnail-name">Web Calculator</h3>
+                        <p class="thumbnail-desc">A functional web-based calculator application with a clean interface and complete operations.</p>
+                        <div class="thumbnail-tags">
+                            <span class="thumbnail-tag">HTML</span>
+                            <span class="thumbnail-tag">CSS</span>
+                            <span class="thumbnail-tag">JavaScript</span>
+                        </div>
+                    </div>
+                    <a href="https://calculator-by-akashmishra.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View Web Calculator Project"></a>
+                </div>
+
+                <!-- Coin Flip Game -->
+                <div class="project-thumbnail" data-aos="fade-up" data-aos-delay="300" data-category="gaming">
+                    <div class="thumbnail-image">
+                        <img src="assets/images/project-image05.svg" alt="Coin Flip Game">
+                    </div>
+                    <div class="thumbnail-content">
+                        <h3 class="thumbnail-name">Coin Flip Game</h3>
+                        <p class="thumbnail-desc">An interactive coin flip game with animations and score tracking functionality.</p>
+                        <div class="thumbnail-tags">
+                            <span class="thumbnail-tag">HTML</span>
+                            <span class="thumbnail-tag">CSS</span>
+                            <span class="thumbnail-tag">JavaScript</span>
+                        </div>
+                    </div>
+                    <a href="https://coin-flip-game-by-akash.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View Coin Flip Game Project"></a>
+                </div>
+
+                <!-- RGB to HEX Converter -->
+                <div class="project-thumbnail" data-aos="fade-up" data-aos-delay="350" data-category="tools">
+                    <div class="thumbnail-image">
+                        <img src="assets/images/project-image06.svg" alt="RGB to HEX Converter">
+                    </div>
+                    <div class="thumbnail-content">
+                        <h3 class="thumbnail-name">RGB to HEX Converter</h3>
+                        <p class="thumbnail-desc">A color conversion tool that transforms RGB color values to hexadecimal codes with preview.</p>
+                        <div class="thumbnail-tags">
+                            <span class="thumbnail-tag">HTML</span>
+                            <span class="thumbnail-tag">CSS</span>
+                            <span class="thumbnail-tag">JavaScript</span>
+                        </div>
+                    </div>
+                    <a href="https://rgb-to-hex-convertor-by-akash.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View RGB to HEX Converter Project"></a>
+                </div>
+
+                <!-- Multi-Step Form -->
+                <div class="project-thumbnail" data-aos="fade-up" data-aos-delay="400" data-category="other">
+                    <div class="thumbnail-image">
+                        <img src="assets/images/project-image07.svg" alt="Multi-Step Form">
+                    </div>
+                    <div class="thumbnail-content">
+                        <h3 class="thumbnail-name">Multi-Step Form</h3>
+                        <p class="thumbnail-desc">A user-friendly multi-step form with progress tracking and input validation.</p>
+                        <div class="thumbnail-tags">
+                            <span class="thumbnail-tag">HTML</span>
+                            <span class="thumbnail-tag">CSS</span>
+                            <span class="thumbnail-tag">JavaScript</span>
+                        </div>
+                    </div>
+                    <a href="https://multi-step-form-design-by-akash.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View Multi-Step Form Project"></a>
+                </div>
+
+                <!-- Bulb Game -->
+                <div class="project-thumbnail" data-aos="fade-up" data-aos-delay="450" data-category="gaming">
+                    <div class="thumbnail-image">
+                        <img src="assets/images/project-image08.svg" alt="Bulb Game">
+                    </div>
+                    <div class="thumbnail-content">
+                        <h3 class="thumbnail-name">Bulb Game</h3>
+                        <p class="thumbnail-desc">An interactive game with light bulb animations and challenging gameplay mechanics.</p>
+                        <div class="thumbnail-tags">
+                            <span class="thumbnail-tag">HTML</span>
+                            <span class="thumbnail-tag">CSS</span>
+                            <span class="thumbnail-tag">JavaScript</span>
+                        </div>
+                    </div>
+                    <a href="https://bulb-game-by-akash.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View Bulb Game Project"></a>
+                </div>
+
+                <!-- Rock Paper Scissor Game -->
+                <div class="project-thumbnail" data-aos="fade-up" data-aos-delay="500" data-category="gaming">
+                    <div class="thumbnail-image">
+                        <img src="assets/images/project-image09.svg" alt="Rock Paper Scissor Game">
+                    </div>
+                    <div class="thumbnail-content">
+                        <h3 class="thumbnail-name">Rock Paper Scissor</h3>
+                        <p class="thumbnail-desc">A classic rock-paper-scissors game with animations, score tracking, and computer AI.</p>
+                        <div class="thumbnail-tags">
+                            <span class="thumbnail-tag">HTML</span>
+                            <span class="thumbnail-tag">CSS</span>
+                            <span class="thumbnail-tag">JavaScript</span>
+                        </div>
+                    </div>
+                    <a href="https://stone-paper-scissors-game-by-akash.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View Rock Paper Scissor Game Project"></a>
+                </div>
+
+                <!-- Digital Clock -->
+                <div class="project-thumbnail" data-aos="fade-up" data-aos-delay="550" data-category="tools">
+                    <div class="thumbnail-image">
+                        <img src="assets/images/project-image10.svg" alt="Digital Clock">
+                    </div>
+                    <div class="thumbnail-content">
+                        <h3 class="thumbnail-name">Digital Clock</h3>
+                        <p class="thumbnail-desc">A sleek digital clock application with date display and customizable appearance options.</p>
+                        <div class="thumbnail-tags">
+                            <span class="thumbnail-tag">HTML</span>
+                            <span class="thumbnail-tag">CSS</span>
+                            <span class="thumbnail-tag">JavaScript</span>
+                        </div>
+                    </div>
+                    <a href="https://digital-clock-by-akash.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View Digital Clock Project"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="contact-cta">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Have a Project in Mind?</h2>
+            <p data-aos="fade-up" data-aos-delay="100">Let's discuss how I can help bring your ideas to life</p>
+            <div class="cta-buttons" data-aos="fade-up" data-aos-delay="200">
+                <a href="contact.html" class="btn btn-primary">Get In Touch</a>
+                <a href="skills.html" class="btn btn-secondary">View My Skills</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Akash Mishra</h3>
+                    <p>Commerce Student. Web Developer. Gamer.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-links-column">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="skills.html">Skills</a></li>
+                            <li><a href="projects.html">Projects</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h4>More</h4>
+                        <ul>
+                            <li><a href="pc-setup.html">PC Specs</a></li>
+                            <li><a href="gaming.html">Gaming</a></li>
+                            <li><a href="resume.html">Resume</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="contact.html">Get In Touch</a></li>
+                            <li><a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                            <li><a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                            <li><a href="https://discord.com/" target="_blank" rel="noopener noreferrer">Discord</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Akash Mishra. All Rights Reserved.</p>
+                <div class="footer-credits">
+                    <p>Designed & Built with 💻 by <span class="highlight">Akash</span></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme Toggler -->
+    <div class="theme-toggle">
+        <span class="theme-toggle-icon">🌙</span>
+    </div>
+
+    <!-- Matrix Text Effect -->
+    <canvas id="matrix-canvas" class="matrix-effect"></canvas>
+
+    <!-- Scripts -->
+    <!-- External Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.0/dist/vanilla-tilt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="js/cursor.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/matrix.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/main.js"></script>
+    
+    <script>
+        // Project filtering
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const projects = document.querySelectorAll('.project-thumbnail');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Get filter value
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Show or hide projects based on filter
+                    projects.forEach(project => {
+                        if (filter === 'all') {
+                            project.style.display = 'block';
+                        } else {
+                            const category = project.getAttribute('data-category');
+                            if (category === filter) {
+                                project.style.display = 'block';
+                            } else {
+                                project.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+            
+            // Initialize vanilla-tilt for project cards
+            if (typeof VanillaTilt !== 'undefined') {
+                VanillaTilt.init(document.querySelectorAll('.project-thumbnail'), {
+                    max: 5,
+                    speed: 300,
+                    glare: true,
+                    'max-glare': 0.1
+                });
+            }
+        });
+    </script>
+</body>
+</html> 

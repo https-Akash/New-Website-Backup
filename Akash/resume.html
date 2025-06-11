@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Resume of Akash Mishra - Commerce Student, Web Developer, and Gamer">
+    <meta name="keywords" content="Akash Mishra, Resume, CV, Web Developer, Commerce Student, Portfolio">
+    <meta name="author" content="Akash Mishra">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Resume | Akash Mishra">
+    <meta property="og:description" content="View the resume of Akash Mishra - Commerce Student and Web Developer">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://akash-mishra.netlify.app/resume.html">
+    <meta property="og:image" content="assets/images/preview.jpg">
+    
+    <title>Resume | Akash Mishra</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Animation Libraries -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <style>
+        /* Resume page specific styles */
+        .page-header {
+            padding: 9rem 0 4rem;
+            background-color: var(--color-dark-lighter);
+            text-align: center;
+        }
+        
+        .resume-section {
+            padding: 5rem 0;
+        }
+        
+        .resume-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+            gap: 1.5rem;
+        }
+        
+        .view-full-btn {
+            display: flex;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            background: var(--color-primary);
+            color: white;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: var(--size-md);
+            transition: all var(--transition-medium);
+        }
+        
+        .view-full-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(74, 108, 247, 0.3);
+        }
+        
+        .download-btn {
+            display: flex;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            background: var(--color-dark-lightest);
+            color: var(--color-light);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: var(--size-md);
+            transition: all var(--transition-medium);
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-primary);
+        }
+        
+        .btn-icon {
+            margin-right: 0.5rem;
+            font-size: 1.2em;
+        }
+        
+        .resume-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            background: var(--color-dark-lightest);
+            border-radius: 10px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .resume-sidebar {
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            padding-right: 2rem;
+        }
+        
+        .profile-section {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 1.5rem;
+            border: 3px solid var(--color-primary);
+        }
+        
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .profile-name {
+            font-size: var(--size-xl);
+            margin-bottom: 0.5rem;
+            color: var(--color-light);
+        }
+        
+        .profile-title {
+            font-size: var(--size-md);
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info {
+            margin-bottom: 2rem;
+        }
+        
+        .info-section-title {
+            font-size: var(--size-lg);
+            margin-bottom: 1.5rem;
+            color: var(--color-light);
+            position: relative;
+            padding-bottom: 0.5rem;
+            font-family: var(--font-heading);
+        }
+        
+        .info-section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--color-primary);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-icon {
+            margin-right: 1rem;
+            font-size: 1.2rem;
+            color: var(--color-primary);
+        }
+        
+        .contact-text {
+            font-size: var(--size-sm);
+            color: var(--color-light);
+        }
+        
+        .contact-text a {
+            color: var(--color-light);
+            transition: color var(--transition-fast);
+        }
+        
+        .contact-text a:hover {
+            color: var(--color-primary);
+        }
+        
+        .skills-list {
+            margin-bottom: 2rem;
+        }
+        
+        .skill-tag {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: rgba(74, 108, 247, 0.1);
+            color: var(--color-primary);
+            border-radius: 20px;
+            margin: 0.3rem;
+            font-size: var(--size-xs);
+        }
+        
+        .resume-main {
+            padding-left: 1rem;
+        }
+        
+        .resume-section-title {
+            font-size: var(--size-xl);
+            margin-bottom: 2rem;
+            color: var(--color-light);
+            position: relative;
+            padding-bottom: 1rem;
+            font-family: var(--font-heading);
+        }
+        
+        .resume-section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--color-primary);
+        }
+        
+        .resume-item {
+            margin-bottom: 2.5rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .resume-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--color-primary);
+        }
+        
+        .resume-item::after {
+            content: '';
+            position: absolute;
+            left: 4px;
+            top: 1rem;
+            bottom: -2rem;
+            width: 2px;
+            background: rgba(74, 108, 247, 0.3);
+        }
+        
+        .resume-item:last-child::after {
+            display: none;
+        }
+        
+        .resume-item-title {
+            font-size: var(--size-lg);
+            margin-bottom: 0.5rem;
+            color: var(--color-light);
+        }
+        
+        .resume-item-subtitle {
+            font-size: var(--size-md);
+            margin-bottom: 0.5rem;
+            color: var(--color-primary);
+        }
+        
+        .resume-date {
+            font-size: var(--size-sm);
+            color: var(--color-light-dimmed);
+            margin-bottom: 1rem;
+        }
+        
+        .resume-description {
+            font-size: var(--size-md);
+            color: var(--color-light-dimmed);
+            line-height: 1.6;
+        }
+        
+        .interests-section {
+            margin-top: 3rem;
+        }
+        
+        .interests-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .interest-item {
+            display: flex;
+            align-items: center;
+            background: var(--color-dark);
+            border-radius: 5px;
+            padding: 0.5rem 1rem;
+        }
+        
+        .interest-icon {
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        @media screen and (max-width: 991px) {
+            .resume-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .resume-sidebar {
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                padding-right: 0;
+                padding-bottom: 2rem;
+            }
+            
+            .resume-main {
+                padding-left: 0;
+            }
+            
+            .resume-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .resume-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="loading">
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="spinner"></div>
+            <div class="loading-text">Loading Akash's World...</div>
+        </div>
+    </div>
+
+    <!-- Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">AM</a>
+            </div>
+            <div class="menu-btn">
+                <div class="menu-btn__burger"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="pc-setup.html">PC Specs</a></li>
+                <li><a href="gaming.html">Gaming</a></li>
+                <li><a href="resume.html" class="active">Resume</a></li>
+                <li><a href="contact.html" class="contact-btn">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 data-aos="fade-up">My Resume</h1>
+            <p data-aos="fade-up" data-aos-delay="100">A summary of my education, experience, and skills</p>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section class="resume-section">
+        <div class="container">
+            <div class="resume-buttons" data-aos="fade-up">
+                <a href="#" class="view-full-btn">
+                    <span class="btn-icon">👁️</span>
+                    <span>View Full Resume</span>
+                </a>
+                <a href="assets/docs/akash-mishra-resume.pdf" download class="download-btn">
+                    <span class="btn-icon">📥</span>
+                    <span>Download PDF</span>
+                </a>
+            </div>
+
+            <div class="resume-content" data-aos="fade-up">
+                <div class="resume-sidebar">
+                    <div class="profile-section">
+                        <div class="profile-image">
+                            <img src="assets/images/akash-profile.jpg" alt="Akash Mishra">
+                        </div>
+                        <h2 class="profile-name">Akash Mishra</h2>
+                        <p class="profile-title">Commerce Student & Web Developer</p>
+                    </div>
+
+                    <div class="contact-info">
+                        <h3 class="info-section-title">Contact Information</h3>
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-text"><a href="mailto:akash@example.com">akash@example.com</a></div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <div class="contact-text">+91 XXXXXXXXXX</div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-text">Deoria, Uttar Pradesh, India</div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">🔗</div>
+                            <div class="contact-text"><a href="https://akash-mishra.netlify.app" target="_blank">akash-mishra.netlify.app</a></div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">💻</div>
+                            <div class="contact-text"><a href="https://github.com/" target="_blank">github.com/akashmishra</a></div>
+                        </div>
+                    </div>
+
+                    <div class="skills-section">
+                        <h3 class="info-section-title">Technical Skills</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">HTML5</span>
+                            <span class="skill-tag">CSS3</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">PHP</span>
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">Responsive Design</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Firebase</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-section">
+                        <h3 class="info-section-title">Soft Skills</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">Problem Solving</span>
+                            <span class="skill-tag">Communication</span>
+                            <span class="skill-tag">Teamwork</span>
+                            <span class="skill-tag">Time Management</span>
+                            <span class="skill-tag">Adaptability</span>
+                            <span class="skill-tag">Self-Motivated</span>
+                        </div>
+                    </div>
+
+                    <div class="languages-section">
+                        <h3 class="info-section-title">Languages</h3>
+                        <div class="contact-item">
+                            <div class="contact-icon">🇮🇳</div>
+                            <div class="contact-text">Hindi (Native)</div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">🇬🇧</div>
+                            <div class="contact-text">English (Fluent)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resume-main">
+                    <div class="education-section">
+                        <h3 class="resume-section-title">Education</h3>
+                        <div class="resume-item">
+                            <h4 class="resume-item-title">Bachelor of Commerce</h4>
+                            <h5 class="resume-item-subtitle">University of Delhi</h5>
+                            <div class="resume-date">2019 - Present</div>
+                            <p class="resume-description">
+                                Pursuing a degree in Commerce with a focus on business administration and economics.
+                                Maintaining a strong academic record while simultaneously developing web development skills independently.
+                            </p>
+                        </div>
+                        <div class="resume-item">
+                            <h4 class="resume-item-title">Higher Secondary Education</h4>
+                            <h5 class="resume-item-subtitle">Delhi Public School</h5>
+                            <div class="resume-date">2017 - 2019</div>
+                            <p class="resume-description">
+                                Completed higher secondary education with a focus on Commerce and Mathematics.
+                                Actively participated in extracurricular activities including the computer club and debate society.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="experience-section">
+                        <h3 class="resume-section-title">Experience</h3>
+                        <div class="resume-item">
+                            <h4 class="resume-item-title">Freelance Web Developer</h4>
+                            <h5 class="resume-item-subtitle">Self-Employed</h5>
+                            <div class="resume-date">2021 - Present</div>
+                            <p class="resume-description">
+                                Developed responsive websites for small businesses and individuals.
+                                Created e-commerce platforms with product management systems.
+                                Implemented SEO best practices to improve client website visibility.
+                            </p>
+                        </div>
+                        <div class="resume-item">
+                            <h4 class="resume-item-title">Web Development Intern</h4>
+                            <h5 class="resume-item-subtitle">TechStart Solutions</h5>
+                            <div class="resume-date">Summer 2022</div>
+                            <p class="resume-description">
+                                Assisted in the development of frontend components for client websites.
+                                Participated in team meetings and gained experience in professional workflow.
+                                Learned industry best practices and collaborated with senior developers.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="projects-section">
+                        <h3 class="resume-section-title">Key Projects</h3>
+                        <div class="resume-item">
+                            <h4 class="resume-item-title">E-Commerce Platform</h4>
+                            <h5 class="resume-item-subtitle">PHP, MySQL, JavaScript</h5>
+                            <div class="resume-date">2022</div>
+                            <p class="resume-description">
+                                A full-featured online shopping platform with user authentication, shopping cart functionality, and admin dashboard.
+                                Implemented secure payment processing and order management system.
+                            </p>
+                        </div>
+                        <div class="resume-item">
+                            <h4 class="resume-item-title">Gaming Community Website</h4>
+                            <h5 class="resume-item-subtitle">HTML, CSS, JavaScript, PHP</h5>
+                            <div class="resume-date">2021</div>
+                            <p class="resume-description">
+                                Built a platform for gamers to connect, share experiences, and organize events.
+                                Features included user profiles, forums, and game reviews.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="interests-section">
+                        <h3 class="resume-section-title">Interests</h3>
+                        <div class="interests-list">
+                            <div class="interest-item">
+                                <span class="interest-icon">🎮</span>
+                                <span>Gaming</span>
+                            </div>
+                            <div class="interest-item">
+                                <span class="interest-icon">💻</span>
+                                <span>Web Development</span>
+                            </div>
+                            <div class="interest-item">
+                                <span class="interest-icon">📊</span>
+                                <span>Business Analytics</span>
+                            </div>
+                            <div class="interest-item">
+                                <span class="interest-icon">🎧</span>
+                                <span>Music</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="contact-cta">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Interested in Working Together?</h2>
+            <p data-aos="fade-up" data-aos-delay="100">Let's discuss how I can contribute to your project</p>
+            <div class="cta-buttons" data-aos="fade-up" data-aos-delay="200">
+                <a href="contact.html" class="btn btn-primary">Get In Touch</a>
+                <a href="projects.html" class="btn btn-secondary">View My Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Akash Mishra</h3>
+                    <p>Commerce Student. Web Developer. Gamer.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-links-column">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="skills.html">Skills</a></li>
+                            <li><a href="projects.html">Projects</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h4>More</h4>
+                        <ul>
+                            <li><a href="pc-setup.html">PC Specs</a></li>
+                            <li><a href="gaming.html">Gaming</a></li>
+                            <li><a href="resume.html">Resume</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="contact.html">Get In Touch</a></li>
+                            <li><a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                            <li><a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                            <li><a href="https://discord.com/" target="_blank" rel="noopener noreferrer">Discord</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Akash Mishra. All Rights Reserved.</p>
+                <div class="footer-credits">
+                    <p>Designed & Built with 💻 by <span class="highlight">Akash</span></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme Toggler -->
+    <div class="theme-toggle">
+        <span class="theme-toggle-icon">🌙</span>
+    </div>
+
+    <!-- Matrix Text Effect -->
+    <canvas id="matrix-canvas" class="matrix-effect"></canvas>
+
+    <!-- Scripts -->
+    <!-- External Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="js/cursor.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/matrix.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 
